@@ -44,7 +44,7 @@ public class jagamine {
                 SUM_left += baskets.get(i);
             }
             if(SUM_left >= HALF_total){
-                if(Math.abs((SUM_total - SUM_left) - SUM_left) <= Math.abs(SUM_total - 2* SUM_left - baskets.get(divider))){
+                if(Math.abs(SUM_total - 2* SUM_left) <= Math.abs(SUM_total - 2* SUM_left - 2* baskets.get(divider))){
                     solved = true;
                 }else{
                     divider--;
