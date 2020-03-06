@@ -36,7 +36,7 @@ public class yl2 {
         System.out.println();
 
         //Sorteeritud massiivist suurima ja vähima leidmine
-        System.out.println("Suurim on: " + sorteeritud[sorteeritud.length-1] + " ja vähim on: " + sorteeritud[0]);
+        System.out.println("Sorteeritud massiivist suurim on: " + sorteeritud[sorteeritud.length-1] + " ja vähim on: " + sorteeritud[0]);
 
         //Sorteerimata masiivist suurima ja vähima leidmine
         int v2him = 999999999;
@@ -49,13 +49,10 @@ public class yl2 {
                 suurim = alg[i];
             }
         }
-        System.out.println("Suurim on: " + suurim + " ja vähim on: " + v2him);
+        System.out.println("Sorteerimata massiivist suurim on: " + suurim + " ja vähim on: " + v2him);
 
-        int n25 = alg.length /4;
-        int n50 = alg.length /2;
-        int n75 = alg.length * 3/4;
-
-        int[] v2ljund = {v2him, sorteeritud[n25], sorteeritud[n50], sorteeritud[n75], suurim};
+        //Vähim; väärtus, millest 25% on väiksemad; väärtus, millest 50% on väiksemad; väärtus, millest 75% on väiksemad; suurim
+        int[] v2ljund = {v2him, sorteeritud[alg.length/4], sorteeritud[alg.length/2], sorteeritud[alg.length*3/4], suurim};
 
         for(int i=0; i < v2ljund.length; i++){
             System.out.print(v2ljund[i] + ", ");
