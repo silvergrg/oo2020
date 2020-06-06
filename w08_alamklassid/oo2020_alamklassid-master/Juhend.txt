@@ -1,0 +1,7 @@
+Tehke omale kloon repositooriumist 
+https://github.com/jaagup/oo2020_alamklassid
+
+* Koostage igaüks omanimeline TekstiUurija
+* Koostage omanimeline TekstiTestid ja konstruktoris määrake oma uurija t väärtuseks
+* Pange testid käima
+* pushi abil saatke oma failid üles gihubi
