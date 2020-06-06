@@ -78,18 +78,18 @@ public class TicTacToe {
         v6idud.add(diag1);
         v6idud.add(diag2);
 
+        String otsus = "";
         for(List l : v6idud) {
             if(m2ngijaK2igud.containsAll(l)){
-                return "Sinu võit!";
+                otsus = "Sinu võit!";
             }else if(cpuK2igud.containsAll(l)){
-                return "Sina kaotasid!";
-            }
-            if(m2ngijaK2igud.size() + cpuK2igud.size() == 9){
-                return "Viik!";
-            }
+                otsus = "Sina kaotasid!";
+            }             
         }
-
-        return "";
+        if(m2ngijaK2igud.size() + cpuK2igud.size() == 9 && otsus.length() == 0){
+            otsus = "Viik!";
+        }
+        return otsus;
     }
 
     public static void main(String[] args) {
@@ -112,6 +112,7 @@ public class TicTacToe {
             //System.out.println(m2ngijaPos);
             teeK2ik(m2nguV2li, m2ngijaPos, "m2ngija");
             printM2nguV2li(m2nguV2li);
+            System.out.println();
 
             String tulemus = checkV6itja();
             if(tulemus.length()> 0){
@@ -132,8 +133,8 @@ public class TicTacToe {
                 System.out.println(tulemus);
                 break;
             }
-       
+
         }
-        
+       
     }
 }
