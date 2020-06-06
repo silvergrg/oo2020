@@ -1,6 +1,4 @@
 import java.util.*;
-import org.junit.*;
-import static org.junit.Assert.*;
 /**
  * TicTacToe
  */
@@ -134,11 +132,6 @@ public class TicTacToe {
                 System.out.println(tulemus);
                 break;
             }
-
-        /*@Test
-        public void test1(){
-            assertEquals(9, 4+5);
-        }*/
        
         }
         
