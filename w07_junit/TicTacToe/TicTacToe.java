@@ -144,6 +144,8 @@ public class TicTacToe {
 
     @Test
     public void v6it(){
+        m2ngijaK2igud.clear();
+        cpuK2igud.clear();
         for(int i=1; i<9; i++){
             m2ngijaK2igud.add(i);
         }
@@ -152,6 +154,8 @@ public class TicTacToe {
     }
     @Test
     public void kaotus(){
+        m2ngijaK2igud.clear();
+        cpuK2igud.clear();
         for(int i=1; i<9; i++){
             cpuK2igud.add(i);
         }
@@ -164,6 +168,8 @@ public class TicTacToe {
     }
     @Test
     public void viik(){
+        m2ngijaK2igud.clear();
+        cpuK2igud.clear();
         m2ngijaK2igud.add(1);
         cpuK2igud.add(2);
         m2ngijaK2igud.add(3);
@@ -177,6 +183,8 @@ public class TicTacToe {
     }
     @Test
     public void v6it2(){
+        m2ngijaK2igud.clear();
+        cpuK2igud.clear();
         m2ngijaK2igud.add(1);
         m2ngijaK2igud.add(2);
         m2ngijaK2igud.add(3);
