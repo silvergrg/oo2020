@@ -3,38 +3,43 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JButton;
-import java.awt.*;
 import java.awt.event.*;
 
 public class Main extends JPanel implements WindowListener, ActionListener {
     int R = 1;
-    TextField tf= new TextField(String.valueOf(R));    
+    int Side = 1024;
+    Triangle tri = new Triangle();
+    ImageIcon showImage = new ImageIcon(tri.generate(Side, R));
+    JLabel pilt = new JLabel("Samm " +R);
+    
 
-    public Main(){        
-        //Kolmnurga lisamine aknasse
-        Triangle tri = new Triangle();
-        ImageIcon showImage = new ImageIcon(tri.generate(512, R));
-        JLabel pilt = new JLabel("Samm " +R);
-        pilt.setIcon(showImage);
-        add(pilt);
+    public Main(){
         //Nupu lisamine aknasse
         JButton inc = new JButton(" +1 ");
         add(inc);
-        add(tf);
-        inc.addActionListener(this);
+        inc.addActionListener(this);        
+        //Kolmnurga lisamine aknasse
+        pilt.setIcon(showImage);
+        add(pilt);
+        
+        
+    }
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        R ++;
+        showImage = new ImageIcon(tri.generate(Side, R));
+        pilt.setText("Samm " +R);
+        pilt.setIcon(showImage);
+        add(pilt);       
     }
 
-    public void actionPerformed(ActionEvent e) {
-        R = Integer.parseInt(tf.getText());
-        super.repaint();
-    }
-    
     public static void main(String[] args) throws Exception {
         
-        JFrame f = new JFrame("Pilt");
+        JFrame f = new JFrame("Sierpinski kolmnurk");      
         f.add(new Main());
-        f.setSize(800, 600);
+        f.setSize(1200, 1200);
         f.setVisible(true);
+        f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 
     public void windowOpened(WindowEvent e) {}
@@ -45,3 +50,4 @@ public class Main extends JPanel implements WindowListener, ActionListener {
     public void windowClosing(WindowEvent e) {}
     public void windowClosed(WindowEvent e) {}
 }
+//Kasutatud allikas http://theflyingkeyboard.net/2d/java-sierpinski-triangle-recursion/ released under MIT License

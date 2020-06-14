@@ -73,3 +73,4 @@ public class Triangle {
 
 
 }
+//Kasutatud allikas http://theflyingkeyboard.net/2d/java-sierpinski-triangle-recursion/ released under MIT License
