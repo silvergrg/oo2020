@@ -8,11 +8,11 @@ import javax.swing.JButton;
 import java.awt.event.*;
 
 public class Main extends JPanel implements WindowListener{
-    private int R = 1;
-    private int Side = 1024;
-    private Triangle tri = new Triangle();
-    private ImageIcon showImage = new ImageIcon(tri.generate(Side, R));
-    private JLabel pilt = new JLabel("Samm " +R);
+    private static int R = 1;
+    private static int Side = 1024;
+    private static Triangle tri = new Triangle();
+    private static ImageIcon showImage = new ImageIcon(tri.generate(Side, R));
+    private static JLabel pilt = new JLabel("Samm " +R);
     
 
     public Main(){
