@@ -1,3 +1,5 @@
+import javax.imageio.ImageIO;
+import java.io.File;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -5,34 +7,60 @@ import javax.swing.JPanel;
 import javax.swing.JButton;
 import java.awt.event.*;
 
-public class Main extends JPanel implements WindowListener, ActionListener {
-    int R = 1;
-    int Side = 1024;
-    Triangle tri = new Triangle();
-    ImageIcon showImage = new ImageIcon(tri.generate(Side, R));
-    JLabel pilt = new JLabel("Samm " +R);
+public class Main extends JPanel implements WindowListener{
+    private int R = 1;
+    private int Side = 1024;
+    private Triangle tri = new Triangle();
+    private ImageIcon showImage = new ImageIcon(tri.generate(Side, R));
+    private JLabel pilt = new JLabel("Samm " +R);
     
 
     public Main(){
-        //Nupu lisamine aknasse
+        //Nuppude lisamine aknasse
         JButton inc = new JButton(" +1 ");
         add(inc);
-        inc.addActionListener(this);        
+        inc.addActionListener(new IncrementButton());
+        JButton reset = new JButton("Lähtesta");
+        add(reset);
+        reset.addActionListener(new ResetButton());
+        JButton print = new JButton("Prindi");
+        add(print);
+        print.addActionListener(new PrintButton());        
         //Kolmnurga lisamine aknasse
         pilt.setIcon(showImage);
-        add(pilt);
-        
+        add(pilt);        
         
     }
-    @Override
-    public void actionPerformed(ActionEvent e) {
-        R ++;
-        showImage = new ImageIcon(tri.generate(Side, R));
-        pilt.setText("Samm " +R);
-        pilt.setIcon(showImage);
-        add(pilt);       
+    private class IncrementButton implements ActionListener{
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            R ++;
+            showImage = new ImageIcon(tri.generate(Side, R));
+            pilt.setText("Samm " +R);
+            pilt.setIcon(showImage);
+            add(pilt);       
+        }
     }
-
+    private class ResetButton implements ActionListener{
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            R = 1;
+            showImage = new ImageIcon(tri.generate(Side, R));
+            pilt.setText("Samm " +R);
+            pilt.setIcon(showImage);
+            add(pilt);       
+        }
+    }
+    private class PrintButton implements ActionListener{
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            try{
+                ImageIO.write(tri.generate(Side, R), "png", new File("pilt.png"));
+            }   catch (Exception exc){
+                exc.printStackTrace();
+            }    
+        }
+    }
     public static void main(String[] args) throws Exception {
         
         JFrame f = new JFrame("Sierpinski kolmnurk");      
@@ -50,4 +78,3 @@ public class Main extends JPanel implements WindowListener, ActionListener {
     public void windowClosing(WindowEvent e) {}
     public void windowClosed(WindowEvent e) {}
 }
-//Kasutatud allikas http://theflyingkeyboard.net/2d/java-sierpinski-triangle-recursion/ released under MIT License
